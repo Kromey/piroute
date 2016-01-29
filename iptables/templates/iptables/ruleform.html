@@ -1,0 +1,50 @@
+<tr id="{{ ruleform.prefix }}-row">
+	<td>{{ ruleform.enabled }}<label for="{{ ruleform.enabled.id_for_label }}"></label></td>
+	<td>{{ ruleform.nic }}</td>
+	<td>
+		<div class="selectcustombox" data-custom="address">
+			<select id="{{ ruleform.prefix }}-source">
+				<option value="1">Alias 1</option>
+				<option value="2">Alias 2</option>
+				<option value="3">Alias 3</option>
+				<option value="4">Alias 4</option>
+				<option value="address">Address...</option>
+			</select>
+			<div>
+				[[ IP Addr ]] [[ Port ]]
+			</div>
+		</div>
+	</td>
+	<td>Firewall</td>
+	<td>
+		<div class="selectcustombox" data-custom="custom">
+			{{ ruleform.service }}
+			<div>
+				{{ ruleform.proto }}
+				{{ ruleform.port }}
+			</div>
+		</div>
+	</td>
+	<td>
+		<div class="selectcustombox" data-custom="forward">
+			{{ ruleform.action }}
+			<div>
+				[[ IP Addr ]] [[ Port ]]
+			</div>
+		</div>
+	</td>
+	<td>{{ ruleform.comment }}</td>
+	<td>{{ ruleform.DELETE }}<label for="{{ ruleform.DELETE.id_for_label }}"></label></td>
+	<td>{{ ruleform.ORDER }}</td>
+</tr>
+{% if ruleform.errors %}
+<tr>
+	<td>{{ ruleform.action.errors }}</td>
+	<td>{{ ruleform.enabled.errors }}</td>
+	<td>{{ ruleform.nic.errors }}</td>
+	<td>{{ ruleform.proto.errors }}{{ ruleform.port.errors }}</td>
+	<td></td>
+	<td></td>
+	<td>{{ ruleform.comment.errors }}</td>
+</tr>
+{% endif %}

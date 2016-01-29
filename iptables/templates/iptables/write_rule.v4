@@ -1,0 +1,1 @@
+-A {{ rule.nic }} -p {{ rule.proto|lower }} -m {{ rule.proto|lower }} --dport {{ rule.port }}{% if rule.comment %} -m comment --comment "{{ rule.comment }}"{% endif %} -j {{ rule.action }}

@@ -1,0 +1,1 @@
+-A {{ chain }} -p {{ proto }} -m {{ proto }} --dport {{ port }} -m comment --comment "{{ comment }}" -j ACCEPT

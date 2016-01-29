@@ -1,0 +1,7 @@
+<select class="service_selector" id="id-{{ prefix }}-service" name="{{ prefix }}-service" onchange="serviceSelector(this)" data-prefix="{{ prefix }}">
+	<option value="">Custom:</option>
+	<option value="TCP|22">SSH</option>
+	<option value="UDP,TCP|53">DNS</option>
+	<option value="TCP|80">HTTP</option>
+	<option value="TCP|443">HTTPS</option>
+</select>

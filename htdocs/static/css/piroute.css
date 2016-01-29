@@ -1,0 +1,40 @@
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border: 1px solid black;
+	background-color: #ffffff;
+}
+tr {
+	background-color: #00B2EE;
+}
+#form-__prefix__-row {
+	display: none;
+}
+div.selectcustombox>:last-child {
+	display: none;
+}
+#ruleform_table input, #ruleform_table select {
+	border: none;
+	background-color: #EEEEEE;
+}
+#ruleform_table select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+#ruleform_table input:focus {
+	background-color: lightgray;
+}
+#ruleform_table input[type=checkbox] {
+	display: none;
+}
+#ruleform_table input[type=checkbox] + label {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	padding: 0px;
+	background-color: #999999;
+}
+#ruleform_table input[type=checkbox]:checked + label {
+	background-color: #0080FF;
+}

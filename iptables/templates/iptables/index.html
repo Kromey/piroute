@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load iptables_extras %}
+
+{% block active-nav %}firewall{% endblock %}
+{% block title %}PiRoute &mdash; iptables{% endblock %}
+{% block header %}PiRoute &mdash; iptables{% endblock %}
+
+{% block content %}
+Use this page to configure your iptables firewall
+<form method="post" action="">
+	<em>NOTE: In the "real deal", this would live on a separate config page where you could also specify default NAT policies and additional interfaces.</em>
+	{% csrf_token %}
+	<table>
+		<tr>
+			<th colspan="2">Interface Names</th>
+		</tr>
+		<tr>
+			<th>External</th>
+			<th>Internal</th>
+		</tr>
+		<tr>
+			<td>{{ ifaces.external_nic }}</td>
+			<td>{{ ifaces.internal_nic }}</td>
+		</tr>
+		<tr>
+			<td>{{ ifaces.external_nic.errors }}</td>
+			<td>{{ ifaces.internal_nic.errors }}</td>
+		</tr>
+	</table>
+	<hr>
+	{{ ruleformset.management_form }}
+	<table id="ruleform_table">
+		<tr>
+			<th>Enabled</th>
+			<th>Network</th>
+			<th>Source</th>
+			<th>Destination</th>
+			<th>Service</th>
+			<th>Action</th>
+			<th>Description</th>
+			<th>Delete</th>
+			<th>Order</th>
+		</tr>
+		{% include 'iptables/ruleform.html' with ruleform=ruleformset.empty_form row_id='ruleform-template' %}
+		{% for ruleform in ruleformset %}
+		{% include 'iptables/ruleform.html' %}
+		{% endfor %}
+	</table>
+	<input type="button" value="New Rule" id="new-port-button"><br />
+	<input type="submit" value="Save Rules" />
+</form>
+
+<style>
+</style>
+
+{% if rules %}
+<div style="border: 3px outset darkgray; white-space: pre-line;">{{ rules }}</div>
+{% endif %}
+{% endblock %}
