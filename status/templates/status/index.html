@@ -10,7 +10,42 @@ PiRoute running on {{ name }}
 <br><br>
 Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
 <br><br>
-Memory: {{ memory.free|format_bytes }} free out of {{ memory.total|format_bytes }} total ({{ memory.percent }}%)
-<br><br>
-Disk: {{ disk.free|format_bytes }} free out of {{ disk.total|format_bytes }} total ({{ disk.percent }}%)
+
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">Memory</div>
+			<div class="panel-body">
+				Using {{ memory.used|format_bytes }} of {{ memory.total|format_bytes }}
+				<div class="progress">
+					<div class="progress-bar" role="progressbar"
+						aria-valuenow="{{ memory.percentused }}"
+						aria-valuemin="0"
+						aria-valuemax="100"
+						style="width:{{ memory.percentused }}%;mid-width:2em;">
+						{{ memory.percentused }}%
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">Disk</div>
+			<div class="panel-body">
+				Using {{ disk.used|format_bytes }} of {{ disk.total|format_bytes }}
+				<div class="progress">
+					<div class="progress-bar" role="progressbar"
+						aria-valuenow="{{ disk.percentused }}"
+						aria-valuemin="0"
+						aria-valuemax="100"
+						style="width:{{ disk.percentused }}%;mid-width:2em;">
+						{{ disk.percentused }}%
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content %}
