@@ -3,7 +3,7 @@
 	<td>{{ ruleform.nic }}</td>
 	<td>
 		<div class="selectcustombox" data-custom="address">
-			<select id="{{ ruleform.prefix }}-source">
+			<select id="{{ ruleform.prefix }}-source" class="form-control">
 				<option value="1">Alias 1</option>
 				<option value="2">Alias 2</option>
 				<option value="3">Alias 3</option>
@@ -19,7 +19,7 @@
 	<td>
 		<div class="selectcustombox" data-custom="custom">
 			{{ ruleform.service }}
-			<div>
+			<div class="form-group">
 				{{ ruleform.proto }}
 				{{ ruleform.port }}
 			</div>

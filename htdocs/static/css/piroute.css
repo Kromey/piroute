@@ -14,16 +14,12 @@ tr {
 div.selectcustombox>:last-child {
 	display: none;
 }
-#ruleform_table input, #ruleform_table select {
+input.form-control, select.form-control {
 	border: none;
-	background-color: #EEEEEE;
 }
-#ruleform_table select {
+select.form-control {
 	-webkit-appearance: none;
 	-moz-appearance: none;
-}
-#ruleform_table input:focus {
-	background-color: lightgray;
 }
 #ruleform_table input[type=checkbox] {
 	display: none;

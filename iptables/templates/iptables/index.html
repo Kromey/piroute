@@ -7,7 +7,7 @@
 
 {% block content %}
 Use this page to configure your iptables firewall
-<form method="post" action="">
+<form method="post" action="" class="form-inline">
 	<em>NOTE: In the "real deal", this would live on a separate config page where you could also specify default NAT policies and additional interfaces.</em>
 	{% csrf_token %}
 	<table>
