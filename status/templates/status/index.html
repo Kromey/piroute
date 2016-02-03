@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load piroute_helpers %}
 
 {% block active-nav %}status{% endblock %}
 {% block title %}PiRoute &mdash; System Status{% endblock %}
@@ -9,7 +10,7 @@ PiRoute running on {{ name }}
 <br><br>
 Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
 <br><br>
-Memory: {{ memory }}
+Memory: {{ memory.free|format_bytes }} free out of {{ memory.total|format_bytes }} total ({{ memory.percent }}%)
 <br><br>
-Disk: {{ disk }}
+Disk: {{ disk.free|format_bytes }} free out of {{ disk.total|format_bytes }} total ({{ disk.percent }}%)
 {% endblock content %}
