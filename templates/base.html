@@ -16,11 +16,8 @@
 </head>
 <body data-active-nav="{% block active-nav %}none{% endblock %}">
 {% include 'navbar.html' %}
-<h1>{% block header %}Welcome to PiRoute{% endblock %}</h1>
-<ul>
-	<li><a href="{% url 'iptables:index' %}">(Old) Firewall Page</a></li>
-</ul>
 <div class="container">
+	<h1>{% block header %}Welcome to PiRoute{% endblock %}</h1>
 	{% block content %}
 	{% endblock %}
 </div>
