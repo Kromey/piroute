@@ -1,15 +1,18 @@
 from django import forms
 
 
+from helpers.forms import PirouteForm
+
+
 from . import formsets, services
 
 
-class InterfacesForm(forms.Form):
+class InterfacesForm(PirouteForm):
     internal_nic = forms.CharField()
     external_nic = forms.CharField()
 
 
-class RuleForm(forms.Form):
+class RuleForm(PirouteForm):
     action = forms.ChoiceField(choices=(('accept','Allow'),('drop','Ignore'),('reject','Block'),('forward','Redirect...')))
     enabled = forms.BooleanField(initial=True, required=False)
     nic = forms.ChoiceField(choices=(('int','Internal'),('ext','External')))
