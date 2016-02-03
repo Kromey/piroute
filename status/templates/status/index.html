@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block active-nav %}status{% endblock %}
+{% block title %}PiRoute &mdash; System Status{% endblock %}
+{% block header %}PiRoute &mdash; System Status{% endblock %}
+
+{% block content %}
+PiRoute running on {{ name }}
+<br><br>
+Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
+{% endblock content %}
