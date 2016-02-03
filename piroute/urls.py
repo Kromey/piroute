@@ -20,4 +20,5 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url('^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^iptables/', include('iptables.urls', namespace='iptables')),
+    url(r'^status/', include('status.urls', namespace='status')),
 ]
