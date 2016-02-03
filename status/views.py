@@ -15,6 +15,8 @@ def index(request):
     context = {
             'load': load,
             'name': utils.get_system_detail(),
+            'memory': utils.get_system_memory(),
+            'disk': utils.get_disk_usage(),
             }
 
     return render(request, 'status/index.html', context)
