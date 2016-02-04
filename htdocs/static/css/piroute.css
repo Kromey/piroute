@@ -8,6 +8,11 @@ td, th {
 tr {
 	background-color: #00B2EE;
 }
+
+div.progress-bar {
+	min-width: 2em;
+}
+
 #form-__prefix__-row {
 	display: none;
 }
