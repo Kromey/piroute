@@ -13,6 +13,14 @@ $( function() {
 
 		$(this).css('width', (val/max*100) + '%');
 
+		if(val < 70) {
+			$(this).addClass('progress-bar-success');
+		} else if(val < 85) {
+			$(this).addClass('progress-bar-warning');
+		} else {
+			$(this).addClass('progress-bar-danger');
+		}
+
 		if(max > 100) {
 			var maxline = 100 / max*100;
 			var gradient = 'linear-gradient(to right, transparent ';
