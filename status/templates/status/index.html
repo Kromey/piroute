@@ -17,7 +17,7 @@ PiRoute running on {{ name }}
 				<div class="progress-group">
 					{% for loadbar in load %}
 					<div class="progress">
-						<div class="progress-bar" role="progressbar"
+						<div class="progress-bar"
 							aria-valuenow="{{ loadbar.1 }}"
 							aria-valuemin="0"
 							aria-valuemax="125">
@@ -36,13 +36,13 @@ PiRoute running on {{ name }}
 			<div class="panel-heading">Memory</div>
 			<div class="panel-body">
 				<div class="progress">
-					<div class="progress-bar" role="progressbar"
+					<div class="progress-bar"
 						aria-valuenow="{{ memory.percentused }}"
 						aria-valuemin="0"
 						aria-valuemax="100">
 						{{ memory.percentused }}%
 					</div>
-					<div class="progress-bar progress-bar-info" role="progressbar"
+					<div class="progress-bar progress-bar-info"
 						aria-valuenow="{{ memory.percentbuffers }}"
 						aria-valuemin="0"
 						aria-valuemax="100">
@@ -62,7 +62,7 @@ PiRoute running on {{ name }}
 			<div class="panel-heading">Disk</div>
 			<div class="panel-body">
 				<div class="progress">
-					<div class="progress-bar" role="progressbar"
+					<div class="progress-bar"
 						aria-valuenow="{{ disk.percentused }}"
 						aria-valuemin="0"
 						aria-valuemax="100">
