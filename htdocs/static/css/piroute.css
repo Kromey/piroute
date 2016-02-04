@@ -9,9 +9,16 @@ tr {
 	background-color: #00B2EE;
 }
 
+/* Custom Styles for Progress Bars */
 div.progress-bar {
 	min-width: 2.5em;
 	transition-duration: 1.0s;
+}
+div.progress-group {
+	margin-bottom: 20px;
+}
+div.progress-group div.progress {
+	margin-bottom: 2px;
 }
 
 #form-__prefix__-row {
