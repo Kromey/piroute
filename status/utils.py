@@ -4,6 +4,21 @@ import os
 import psutil
 
 
+def get_system_load():
+    osload = os.getloadavg()
+    cpus = psutil.cpu_count()
+    load = []
+
+    for avg in osload:
+        load.append(
+                (
+                    avg,
+                    percent(avg/cpus),
+                    ))
+
+    return load
+
+
 def get_system_detail():
     uname = os.uname()
 
@@ -26,8 +41,10 @@ def get_system_memory():
             'total': psmem.total,
             'free': psmem.available,
             'used': psmem.total-psmem.available,
-            'percentfree': round(psmem.available/psmem.total*100, 1),
-            'percentused': round(100-psmem.available/psmem.total*100, 1),
+            'buffers': psmem.buffers,
+            'percentfree': percent(psmem.available/psmem.total),
+            'percentused': percent(1-psmem.available/psmem.total),
+            'percentbuffers': percent(psmem.buffers/psmem.total),
             }
     return mem
 
@@ -39,8 +56,12 @@ def get_disk_usage():
             'total': psdisk.total,
             'free': psdisk.free,
             'used': psdisk.used,
-            'percentfree': round(psdisk.free/psdisk.total*100, 1),
-            'percentused': round(psdisk.used/psdisk.total*100, 1),
+            'percentfree': percent(psdisk.free/psdisk.total),
+            'percentused': percent(psdisk.used/psdisk.total),
             }
     return disk
+
+
+def percent(val):
+    return round(val*100, 1)
 
