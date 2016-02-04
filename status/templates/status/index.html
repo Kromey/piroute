@@ -8,15 +8,33 @@
 {% block content %}
 PiRoute running on {{ name }}
 <br><br>
-Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
-<br><br>
 
 <div class="row">
 	<div class="col-sm-6 col-md-4">
 		<div class="panel panel-default">
+			<div class="panel-heading">Load</div>
+			<div class="panel-body">
+				<div class="progress-group">
+					{% for loadbar in load %}
+					<div class="progress">
+						<div class="progress-bar" role="progressbar"
+							aria-valuenow="{{ loadbar.1 }}"
+							aria-valuemin="0"
+							aria-valuemax="100">
+							{{ loadbar.1 }}%
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				Load: {{ load.0.0 }} {{ load.1.0 }} {{ load.2.0 }}
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-6 col-md-4">
+		<div class="panel panel-default">
 			<div class="panel-heading">Memory</div>
 			<div class="panel-body">
-				Using {{ memory.used|format_bytes }} of {{ memory.total|format_bytes }}
 				<div class="progress">
 					<div class="progress-bar" role="progressbar"
 						aria-valuenow="{{ memory.percentused }}"
@@ -24,7 +42,17 @@ Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
 						aria-valuemax="100">
 						{{ memory.percentused }}%
 					</div>
+					<div class="progress-bar progress-bar-info" role="progressbar"
+						aria-valuenow="{{ memory.percentbuffers }}"
+						aria-valuemin="0"
+						aria-valuemax="100">
+						{{ memory.percentbuffers }}%
+					</div>
 				</div>
+				<div style="display:inline-block;min-width:48%;">Used: {{ memory.used|format_bytes }} ({{ memory.percentused }}%)</div>
+				<div style="display:inline-block;min-width:48%;">Buffers: {{ memory.buffers|format_bytes }} ({{ memory.percentbuffers }}%)</div>
+				<div style="display:inline-block;min-width:48%;">Free: {{ memory.free|format_bytes }} ({{ memory.percentfree }}%)</div>
+				<div style="display:inline-block;min-width:48%;">Total: {{ memory.total|format_bytes }} (100%)</div>
 			</div>
 		</div>
 	</div>
@@ -33,7 +61,6 @@ Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
 		<div class="panel panel-default">
 			<div class="panel-heading">Disk</div>
 			<div class="panel-body">
-				Using {{ disk.used|format_bytes }} of {{ disk.total|format_bytes }}
 				<div class="progress">
 					<div class="progress-bar" role="progressbar"
 						aria-valuenow="{{ disk.percentused }}"
@@ -42,6 +69,7 @@ Load: {{ load.0 }} {{ load.1 }} {{ load.2 }}
 						{{ disk.percentused }}%
 					</div>
 				</div>
+				Using {{ disk.used|format_bytes }} of {{ disk.total|format_bytes }}
 			</div>
 		</div>
 	</div>
