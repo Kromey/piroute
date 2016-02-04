@@ -1,20 +1,28 @@
 from django import template
+from django.utils.safestring import mark_safe
 
 
 register = template.Library()
 
 
 @register.filter
-def format_bytes(num):
-    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
-        if abs(num) < 1024.0:
-            return "{size:.1F}{unit}B".format(
-                    size=num,
-                    unit=unit
-                    )
-        num /= 1024.0
-    return "{size:.1F}{unit}B".format(
-            size=num,
-            unit='Yi'
+def format_bytes(numbytes):
+    val = numbytes
+
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi','Yi']:
+        if abs(val) < 2*1024.0:
+            break
+        val /= 1024.0
+
+    if val >= 10.0:
+        val = '{val:.0F}'.format(val=val)
+    else:
+        val = '{val:.1F}'.format(val=val)
+
+    formatted = '<span title="{numbytes:,} Bytes">{size}{unit}B</span>'.format(
+            numbytes=numbytes,
+            size=val,
+            unit=unit,
             )
+    return mark_safe(formatted)
 
