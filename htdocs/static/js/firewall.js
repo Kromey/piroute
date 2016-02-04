@@ -7,8 +7,22 @@ $( function() {
 	};
 
 	/* Progress Bars */
-	$('div.progress-bar').css('width', function () {
-		return $(this).attr('aria-valuenow') + '%';
+	$('div.progress-bar').each(function () {
+		var val = parseFloat($(this).attr('aria-valuenow'));
+		var max = parseFloat($(this).attr('aria-valuemax'));
+
+		$(this).css('width', (val/max*100) + '%');
+
+		if(max > 100) {
+			var maxline = 100 / max*100;
+			var gradient = 'linear-gradient(to right, transparent ';
+			gradient += maxline;
+			gradient += '%, #FFC0CB ';
+			gradient += maxline;
+			gradient += '%)';
+
+			$(this).parent().css('background-image', gradient);
+		}
 	});
 
 	/* Firewall Rules Table */
