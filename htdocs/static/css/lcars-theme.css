@@ -1,7 +1,7 @@
 div.lcars-top {
 	background-image: linear-gradient(
 		to right,
-		#ABAAFF 250px,
+		#ABAAFF, #ABAAFF 250px,
 		transparent 251px, transparent 255px,
 		#F7CB97 256px, #F7CB97 500px,
 		transparent 501px, transparent 505px,
@@ -18,11 +18,13 @@ div.lcars-top nav {
 	border: none;
 	border-radius: 0px;
 	border-bottom-left-radius: 30px;
+	background: #FFFFFF;
+	box-shadow: none;
 }
 div.lcars-bottom {
 	background-image: linear-gradient(
 		to right,
-		#ABAAFF 250px,
+		#ABAAFF, #ABAAFF 250px,
 		transparent 251px, transparent 255px,
 		#FFA00B 256px, #FFA00B 500px,
 		transparent 501px, transparent 505px,
