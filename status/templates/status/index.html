@@ -61,15 +61,19 @@ PiRoute running on {{ name }}
 		<div class="panel panel-default">
 			<div class="panel-heading">Disk</div>
 			<div class="panel-body">
-				<div class="progress">
-					<div class="progress-bar"
-						aria-valuenow="{{ disk.percentused }}"
-						aria-valuemin="0"
-						aria-valuemax="100">
-						{{ disk.percentused }}%
+				<div class="progress-group">
+					{% for disk in disks %}
+					<code>{{ disk.mountpoint }}</code>: {{ disk.used|format_bytes }} used of {{ disk.total|format_bytes }}
+					<div class="progress">
+						<div class="progress-bar"
+							aria-valuenow="{{ disk.percentused }}"
+							aria-valuemin="0"
+							aria-valuemax="100">
+							{{ disk.percentused }}%
+						</div>
 					</div>
+					{% endfor %}
 				</div>
-				Using {{ disk.used|format_bytes }} of {{ disk.total|format_bytes }}
 			</div>
 		</div>
 	</div>

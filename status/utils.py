@@ -50,16 +50,20 @@ def get_system_memory():
 
 
 def get_disk_usage():
-    psdisk = psutil.disk_usage('/')
+    disks = []
 
-    disk = {
-            'total': psdisk.total,
-            'free': psdisk.free,
-            'used': psdisk.used,
-            'percentfree': percent(psdisk.free/psdisk.total),
-            'percentused': percent(psdisk.used/psdisk.total),
-            }
-    return disk
+    for partition in psutil.disk_partitions():
+        psdisk = psutil.disk_usage(partition.mountpoint)
+
+        disks.append({
+                'mountpoint': partition.mountpoint,
+                'total': psdisk.total,
+                'free': psdisk.free,
+                'used': psdisk.used,
+                'percentfree': percent(psdisk.free/psdisk.total),
+                'percentused': percent(psdisk.used/psdisk.total),
+                })
+    return disks
 
 
 def percent(val):
