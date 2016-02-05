@@ -11,7 +11,7 @@ $( function() {
 		var val = parseFloat($(this).attr('aria-valuenow'));
 		var max = parseFloat($(this).attr('aria-valuemax'));
 
-		$(this).css('width', (val/max*100) + '%');
+		$(this).css('width', (val/max*100) + '%').css('min-width', '2.5em');
 
 		if(val < 70) {
 			$(this).addClass('progress-bar-success');

@@ -11,8 +11,11 @@ tr {
 
 /* Custom Styles for Progress Bars */
 div.progress-bar {
-	min-width: 2.5em;
+	min-width: 0px;
+	width: 0px;
 	transition-duration: 1.0s;
+	transition-property: width, min-width;
+	transition-delay: 0.1s;
 }
 div.progress-group {
 	margin-bottom: 20px;
