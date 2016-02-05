@@ -35,24 +35,41 @@ PiRoute running on {{ name }}
 		<div class="panel panel-default">
 			<div class="panel-heading">Memory</div>
 			<div class="panel-body">
-				<div class="progress">
-					<div class="progress-bar"
-						aria-valuenow="{{ memory.percentused }}"
-						aria-valuemin="0"
-						aria-valuemax="100">
-						{{ memory.percentused }}%
+				<div class="progress-group">
+					Physical
+					<div class="progress">
+						<div class="progress-bar"
+							aria-valuenow="{{ memory.percentused }}"
+							aria-valuemin="0"
+							aria-valuemax="100">
+							{{ memory.percentused }}%
+						</div>
+						<div class="progress-bar progress-bar-info"
+							aria-valuenow="{{ memory.percentbuffers }}"
+							aria-valuemin="0"
+							aria-valuemax="100">
+							{{ memory.percentbuffers }}%
+						</div>
 					</div>
-					<div class="progress-bar progress-bar-info"
-						aria-valuenow="{{ memory.percentbuffers }}"
-						aria-valuemin="0"
-						aria-valuemax="100">
-						{{ memory.percentbuffers }}%
+					Swap
+					<div class="progress">
+						<div class="progress-bar"
+							aria-valuenow="{{ memory.percentswapused }}"
+							aria-valuemin="0"
+							aria-valuemax="100">
+							{{ memory.percentswapused }}%
+						</div>
 					</div>
 				</div>
+				{{ memory.used|format_bytes }} ({{ memory.percentused }}%) used of {{ memory.total|format_bytes }},
+				with {{ memory.buffers|format_bytes }} ({{ memory.percentbuffers }}%) buffered.<br>
+				{{ memory.swapused|format_bytes }} ({{ memory.percentswapused }}%) used of {{ memory.swaptotal|format_bytes }} swap.
+				{% comment %}
 				<div style="display:inline-block;min-width:48%;">Used: {{ memory.used|format_bytes }} ({{ memory.percentused }}%)</div>
 				<div style="display:inline-block;min-width:48%;">Buffers: {{ memory.buffers|format_bytes }} ({{ memory.percentbuffers }}%)</div>
 				<div style="display:inline-block;min-width:48%;">Free: {{ memory.free|format_bytes }} ({{ memory.percentfree }}%)</div>
 				<div style="display:inline-block;min-width:48%;">Total: {{ memory.total|format_bytes }} (100%)</div>
+				{% endcomment %}
 			</div>
 		</div>
 	</div>

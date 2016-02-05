@@ -34,6 +34,7 @@ def get_system_detail():
 
 def get_system_memory():
     psmem = psutil.virtual_memory()
+    psswap = psutil.swap_memory()
 
     # What's "used" logically and what's "used" in the output don't really
     # mesh, so we calculate "used" as total less available.
@@ -42,9 +43,13 @@ def get_system_memory():
             'free': psmem.available,
             'used': psmem.total-psmem.available,
             'buffers': psmem.buffers,
+            'swaptotal': psswap.total,
+            'swapfree': psswap.free,
+            'swapused': psswap.used,
             'percentfree': percent(psmem.available/psmem.total),
             'percentused': percent(1-psmem.available/psmem.total),
             'percentbuffers': percent(psmem.buffers/psmem.total),
+            'percentswapused': psswap.percent,
             }
     return mem
 
