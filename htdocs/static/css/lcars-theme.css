@@ -1,0 +1,46 @@
+div.lcars-top {
+	background-image: linear-gradient(
+		to right,
+		#ABAAFF 250px,
+		transparent 251px, transparent 255px,
+		#F7CB97 256px, #F7CB97 500px,
+		transparent 501px, transparent 505px,
+		#9A99FF 506px, #9A99FF 750px,
+		transparent 751px, transparent 755px,
+		#F7CB97 756px, #F7CB97 1000px,
+		transparent 1001px);
+	border-bottom-left-radius: 40px;
+	padding: 0px 0px 5px 15px;
+	margin-bottom: 3px;
+}
+div.lcars-top nav {
+	margin: 0px 0px 10px;
+	border: none;
+	border-radius: 0px;
+	border-bottom-left-radius: 30px;
+}
+div.lcars-bottom {
+	background-image: linear-gradient(
+		to right,
+		#ABAAFF 250px,
+		transparent 251px, transparent 255px,
+		#FFA00B 256px, #FFA00B 500px,
+		transparent 501px, transparent 505px,
+		#BCBBFF 506px, #BCBBFF 750px,
+		transparent 751px, transparent 755px,
+		#FFA00B 756px, #FFA00B 1000px,
+		transparent 1001px);
+	border-top-left-radius: 50px;
+	padding-top: 15px;
+	height: 150px;
+	overflow: visible;
+}
+div.container {
+	border-top-left-radius: 50px;
+	background-color: white;
+	min-height: 150px;
+	padding: 0px 40px 0px 15px;
+	margin-left: 25px;
+	width: auto;
+}
+

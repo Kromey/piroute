@@ -10,16 +10,21 @@
 <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/piroute.css' %}" rel="stylesheet">
+<link href="{% static 'css/lcars-theme.css' %}" rel="stylesheet">
 <script src="{% static 'js/jquery-2.2.0.min.js' %}" defer></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" defer></script>
 <script src="{% static 'js/firewall.js' %}" defer></script>
 </head>
 <body data-active-nav="{% block active-nav %}none{% endblock %}">
-{% include 'navbar.html' %}
+<div class="lcars-top">
+	{% include 'navbar.html' %}
+</div>
+<div class="lcars-bottom">
 <div class="container">
 	<h1>{% block header %}Welcome to PiRoute{% endblock %}</h1>
 	{% block content %}
 	{% endblock %}
+</div>
 </div>
 </body>
 </html>
