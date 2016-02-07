@@ -19,7 +19,7 @@ def format_bytes(numbytes):
     else:
         val = '{val:.1F}'.format(val=val)
 
-    formatted = '<span title="{numbytes:,} Bytes">{size}&nbsp;{unit}B</span>'.format(
+    formatted = '<span title="{numbytes:,} Bytes" data-toggle="tooltip">{size} {unit}B</span>'.format(
             numbytes=numbytes,
             size=val,
             unit=unit,

@@ -9,6 +9,11 @@ tr {
 	background-color: #00B2EE;
 }
 
+[data-toggle="tooltip"] {
+	cursor: help;
+	white-space: nowrap;
+}
+
 /* Custom Styles for Progress Bars */
 div.progress-bar {
 	min-width: 0px;
