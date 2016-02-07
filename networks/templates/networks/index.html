@@ -7,7 +7,22 @@
 
 {% block content %}
 <ul class="nav nav-tabs">
-	<li role="presentation" class="active"><a href="#">Networks</a></li>
-	<li role="presentation"><a href="#">Interfaces</a></li>
+	<li role="presentation" class="active"><a href="#networks" aria-controls="networks" role="tab" data-toggle="tab">Networks</a></li>
+	<li role="presentation"><a href="#interfaces" aria-controls="interfaces" role="tab" data-toggle="tab">Interfaces</a></li>
 </ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane fade in active" id="networks">
+		<h2>Define Networks</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices bibendum venenatis. Integer ac pharetra diam, nec dictum ex. Integer tincidunt ligula sit amet eros bibendum, at maximus quam viverra. Nulla tristique erat sit amet augue vestibulum sagittis. Suspendisse sed pharetra lorem. Proin et gravida felis. Etiam auctor lorem a dolor rutrum, quis mollis metus vehicula.</p>
+
+		<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean eget nisl purus. Integer finibus, sem ac vestibulum feugiat, metus enim posuere ipsum, malesuada dignissim velit metus id purus. Morbi ante diam, pharetra elementum elit ac, efficitur lobortis turpis. Integer ornare lorem dignissim, condimentum est id, aliquam tellus. Sed in felis ornare, accumsan metus at, lacinia libero. Vestibulum ornare, leo sed iaculis varius, massa velit condimentum neque, nec mollis mauris purus vitae purus. Nullam et velit laoreet, vehicula lectus vitae, semper tellus. Donec commodo ut diam nec placerat. Praesent consequat mauris nec nunc congue feugiat. Sed laoreet ullamcorper tempor. Nullam sed sapien eu sapien commodo sollicitudin. Nullam dapibus pharetra nisl nec tempor.</p>
+	</div>
+	<div role="tabpanel" class="tab-pane fade" id="interfaces">
+		<h2>Define Interfaces</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id vehicula felis, ut dapibus metus. Pellentesque vulputate elit urna, in tempor elit molestie id. Integer vestibulum id sapien id commodo. Mauris auctor ante eu sapien mollis, id vehicula sem pretium. In at ante eu magna vestibulum fermentum. Vivamus fermentum lorem quis leo fringilla luctus. Donec sed turpis eros. Sed in ligula fringilla, vehicula nunc et, molestie enim. Sed molestie augue in accumsan egestas. Maecenas tempor fermentum erat a volutpat.</p>
+
+		<p>Quisque orci quam, luctus a eros eget, ultrices viverra eros. In hac habitasse platea dictumst. Nunc sit amet viverra libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer tincidunt mattis sagittis. Proin nisi ex, euismod eu auctor et, lobortis vel est. Vestibulum viverra sem sagittis elit tristique scelerisque. Nulla leo tellus, rutrum in tincidunt eu, pulvinar et neque. Etiam ut massa consectetur, vestibulum dui et, iaculis ligula. Nullam at diam vitae risus semper tempor vel at justo. Pellentesque aliquet lorem risus, ut hendrerit tellus luctus sit amet. Nullam quis libero eu justo ultrices tristique. Etiam ornare congue est vitae facilisis. Phasellus aliquet eros eu arcu dictum, nec aliquam odio maximus.</p>
+	</div>
+</div>
 {% endblock content %}
