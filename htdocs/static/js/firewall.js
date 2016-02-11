@@ -1,10 +1,13 @@
 $( function() {
-	/* Global Site Scripts */
+	/* Activate Current Section in Navbar */
 	var activenav = $('body').data('active-nav');
 	if('none' != activenav) {
 		var target = '#nav-' + activenav;
 		$(target).addClass('active');
 	};
+
+	/* Enable Bootstrap Tooltips */
+	$('[data-toggle="tooltip"]').tooltip();
 
 	/* Progress Bars */
 	$('div.progress-bar').each(function () {
