@@ -7,8 +7,8 @@ from . import validators, forms
 
 # Create your models here.
 
-class IPNetworkField(models.Field):
-    description = _("IP address or network")
+class CIDRNetworkField(models.Field):
+    description = _("CIDR network; assumes /32 by default")
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 18
